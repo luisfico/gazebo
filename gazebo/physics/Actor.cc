@@ -146,6 +146,7 @@ void Actor::Load(sdf::ElementPtr _sdf)
 
   // If there is a skin, check that the skin visual was created and save its id
   std::string actorLinkName = actorName + "::" + actorName + "_pose";
+  gzmsg<<"$$$$$$$$$$$$$$$$$$ actorLinkName: "<<actorLinkName<<std::endl;
   LinkPtr actorLinkPtr = Model::GetLink(actorLinkName);
   if (actorLinkPtr)
   {

@@ -373,7 +373,7 @@ namespace gazebo
       protected: std::string visualName;
 
       /// \brief ID for the visual representing the skin.
-      protected: uint32_t visualId;
+      public: uint32_t visualId; //lc: before protected
 
       /// \brief Publisher to send bone info.
       protected: transport::PublisherPtr bonePosePub;
