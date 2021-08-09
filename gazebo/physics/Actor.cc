@@ -426,8 +426,8 @@ void Actor::LoadAnimation(sdf::ElementPtr _sdf)
       ::tolower);
 
   // Get scale
-  double animScale = _sdf->Get<double>("scale");
-
+  //double animScale = _sdf->Get<double>("scale");
+  double animScale =1;
   // Load animation skeleton according to file type
   Skeleton *skel = nullptr;
   if (extension == "bvh")
