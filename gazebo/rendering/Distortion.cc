@@ -509,6 +509,9 @@ ignition::math::Vector2d Distortion::Distort(
       _k2 * rSq * rSq +
       _k3 * rSq * rSq * rSq);
 
+
+  gzmsg<<"DEBUG: Test distorsion with 5params : _k1,_k2,_p1,_p2,_k3: "
+  <<_k1<<" "<<_k2<<" "<<_p1<<" "<<_p2<<" "<<_k3<<std::endl;
   //Test distorsion with 12params add: _k4,_k5,_k6,_s1,_s2,_s3,_s4
   double _k4=0,_k5=0,_k6=0,_s1=0,_s2=0,_s3=0,_s4=0;
   gzmsg<<"DEBUG: Test distorsion with 12params add: _k4,_k5,_k6,_s1,_s2,_s3,_s4: "
