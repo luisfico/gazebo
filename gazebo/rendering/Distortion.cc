@@ -498,6 +498,8 @@ ignition::math::Vector2d Distortion::Distort(
 
   ignition::math::Vector2d normalized2d = (_in - _center)*(_width/_f);
   ignition::math::Vector3d normalized(normalized2d.X(), normalized2d.Y(), 0);
+  
+  //      r^2=x^2=y^2
   double rSq = normalized.X() * normalized.X() +
                normalized.Y() * normalized.Y();
 
@@ -507,11 +509,23 @@ ignition::math::Vector2d Distortion::Distort(
       _k2 * rSq * rSq +
       _k3 * rSq * rSq * rSq);
 
+  //Test distorsion with 12params add: _k4,_k5,_k6,_s1,_s2,_s3,_s4
+  double _k4=0,_k5=0,_k6=0,_s1=0,_s2=0,_s3=0,_s4=0;
+  gzmsg<<"DEBUG: Test distorsion with 12params add: _k4,_k5,_k6,_s1,_s2,_s3,_s4: "
+  <<_k4<<" "<<_k5<<" "<<_k6<<" "<<_s1<<" "<<_s2<<" "<<_s3<<" "<<_s4<<std::endl;
+
+  dist /=(1.0 + 
+      _k4 * rSq +
+      _k5 * rSq * rSq +
+      _k6 * rSq * rSq * rSq);
+
   // tangential
   dist.X() += _p2 * (rSq + 2 * (normalized.X()*normalized.X())) +
-      2 * _p1 * normalized.X() * normalized.Y();
+      2 * _p1 * normalized.X() * normalized.Y()+
+      _s1 * rSq+_s2 * rSq * rSq;
   dist.Y() += _p1 * (rSq + 2 * (normalized.Y()*normalized.Y())) +
-      2 * _p2 * normalized.X() * normalized.Y();
+      2 * _p2 * normalized.X() * normalized.Y()+
+      _s3 * rSq+_s4 * rSq * rSq;
 
   return ((_center*_width) +
     ignition::math::Vector2d(dist.X(), dist.Y())*_f)/_width;
