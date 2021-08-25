@@ -513,7 +513,7 @@ ignition::math::Vector2d Distortion::Distort(
   gzmsg<<"DEBUG: Test distorsion with 5params : _k1,_k2,_p1,_p2,_k3: "
   <<_k1<<" "<<_k2<<" "<<_p1<<" "<<_p2<<" "<<_k3<<std::endl;
   //Test distorsion with 12params add: _k4,_k5,_k6,_s1,_s2,_s3,_s4
-  double _k4=0,_k5=0,_k6=0,_s1=0,_s2=0,_s3=0,_s4=0;
+  double _k4=0.000001,_k5=0.000002,_k6=0.000003,_s1=0.000004,_s2=0.000005,_s3=0.000006,_s4=0.000007;
   gzmsg<<"DEBUG: Test distorsion with 12params add: _k4,_k5,_k6,_s1,_s2,_s3,_s4: "
   <<_k4<<" "<<_k5<<" "<<_k6<<" "<<_s1<<" "<<_s2<<" "<<_s3<<" "<<_s4<<std::endl;
 
