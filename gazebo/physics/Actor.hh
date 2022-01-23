@@ -271,7 +271,7 @@ namespace gazebo
       /// The animation may be described in COLLADA or BVH formats.
       /// \param[in] _sdf SDF element containing the animation.
       /// \sa LoadSkin
-      private: void LoadAnimation(sdf::ElementPtr _sdf);
+      public: void LoadAnimation(sdf::ElementPtr _sdf);
 
       /// \brief Load scripted trajectories from SDF.
       /// \param[in] _sdf SDF element containing the trajectory script.
